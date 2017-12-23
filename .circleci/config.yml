@@ -3,6 +3,8 @@ jobs:
   build:
     machine: true
     
+    context: org-global
+    
     steps:
       - checkout
 
