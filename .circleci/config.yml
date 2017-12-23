@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    
+    steps:
+      - checkout
+
+      - run:
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      - run: cd node-appengine
+      
+      # build the application image
+      - run: docker build -t amitrke/node-appengine:$CIRCLE_BRANCH .
+
+      # deploy the image
+      - run: docker push amitrke/node-appengine:$CIRCLE_BRANCH
