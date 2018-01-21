@@ -8,8 +8,14 @@ jobs:
 
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-      # build the application image
+      # build the node application image
       - run: docker build -t amitrke/node-appengine:$CIRCLE_BRANCH node-appengine
 
-      # deploy the image
+      # deploy the node image
       - run: docker push amitrke/node-appengine:$CIRCLE_BRANCH
+
+      # build the java application image
+      - run: docker build -t amitrke/java-appengine:$CIRCLE_BRANCH java-appengine
+
+      # deploy the java image
+      - run: docker push amitrke/java-appengine:$CIRCLE_BRANCH
