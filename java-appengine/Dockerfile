@@ -1,4 +1,4 @@
-FROM openjdk:alpine
+FROM maven:3.2-jdk-8-onbuild
 
 ENV CLOUD_SDK_VERSION 183.0.0
 ENV PATH /google-cloud-sdk/bin:$PATH
